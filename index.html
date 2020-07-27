@@ -25,12 +25,12 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="phone-decrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phone-count" type="text" class="form-control text-center" value="1">
+                           <button id="phone-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$919</h5>
+                        <h5 id="phone-price">$919</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -79,6 +79,28 @@
       </div>
    </section>
    <script>
+      //phone part
+      //number increase
+      document.getElementById('phone-increase').addEventListener('click', function () {
+         const phoneInput = document.getElementById('phone-count');
+         const phoneCount = parseInt(phoneInput.value);
+         const phoneNewCount = phoneCount + 1;
+         phoneInput.value = phoneNewCount;
+         const phonePrice = phoneNewCount * 919 ;
+         document.getElementById('phone-price').innerText = '$'+ phonePrice;
+
+      });
+      //number decrease
+      document.getElementById('phone-decrease').addEventListener('click', function () {
+         const phoneInput = document.getElementById('phone-count');
+         const phoneCount = parseInt(phoneInput.value);
+         const phoneNewCount = phoneCount - 1;
+         phoneInput.value = phoneNewCount;
+         const phonePrice = phoneNewCount * 919 ;
+         document.getElementById('phone-price').innerText = '$'+ phonePrice;
+      })
+      //case part done
+      
       document.getElementById('case-increase').addEventListener('click', function () {
          handleProductChange(true);
       })
@@ -97,18 +119,15 @@
          else if (isIncrease == false && caseCount > 0) {
             caseNewCount = caseCount - 1;
          }
-        // const caseNewCount = caseCount -1;
+         // const caseNewCount = caseCount -1;
          caseInput.value = caseNewCount;
          const casePrice = caseNewCount * 59;
          document.getElementById('case-price').innerText =  '$'+ casePrice;
          
       };
-
-     
       // document.getElementById('case-increase').addEventListener('click', function () {
       //    const caseInput = document.getElementById('case-count');
-      //    const caseCount = parseInt(caseInput.value);
-         
+      //    const caseCount = parseInt(caseInput.value);   
       //    const caseNewCount = caseCount + 1;
       //    caseInput.value = caseNewCount;
       //    const casePrice = caseNewCount * 59;
@@ -118,7 +137,6 @@
       // document.getElementById('case-decrease').addEventListener('click', function () {
       //    const caseInput = document.getElementById('case-count');
       //    const caseCount = parseInt(caseInput.value);
-         
       //    const caseNewCount = caseCount -1;
       //    caseInput.value = caseNewCount;
       //    const casePrice = caseNewCount * 59;
