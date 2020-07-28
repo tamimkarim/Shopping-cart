@@ -53,3 +53,12 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+.btn-default{
+	padding: 0 8px;;
+}
+.form-control{
+	margin: 7px;
+}
+.btn-default:hover{
+	background-color:lightcyan;
+}
